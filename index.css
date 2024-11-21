@@ -1,0 +1,206 @@
+/* Global Styles */
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #e9e9e9; /* Fallback background color */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* For the pseudo-element positioning */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Apply Fixed and Blurred Background Image */
+body::before {
+    content: "";
+    position: fixed; /* Use fixed positioning */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('sample.webp');
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px);
+    z-index: -1; /* Place the blurred image behind other content */
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Header / Title */
+.title {
+    font-size: 6vw; /* Responsive font size */
+    font-weight: 700;
+    color: rgb(4, 12, 23);
+    width: 90%;
+    max-width: 1200px; /* Max width for large screens */
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+    position: relative; /* Changed to relative for better control */
+    top: 0;
+    left: 0;
+    font-family:'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+/* Layout Containers */
+.full_body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+    margin-top: 80px;
+    position: relative; /* Ensure proper stacking context */
+    z-index: 1; /* Ensure content is above the background */
+}
+
+/* Search Box */
+.search-box {
+    display: flex;
+    justify-content: space-between; /* Space between input and button */
+    align-items: center;
+    margin: 20px 0; /* Adjusted margin */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px; /* Increased max-width */
+}
+
+/* Search Input */
+.form-input {
+    border: none;
+    outline: none;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid black;
+    margin-right: 10px;
+    border-radius: 4px;
+    font-size: 16px; /* Adjusted font size */
+    flex: 1;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-input:focus {
+    border-color: black;
+}
+
+.search {
+    border: none;
+    outline: none;
+    background-color: rgb(29, 52, 116);
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Movie Cards */
+.movie-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    overflow-y: auto; /* Allow vertical scrolling within the cards container */
+}
+
+.movie-card {
+    /* background-color: rgb(233, 231, 226); */
+    background: transparent;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Movie Details */
+.movie-description {
+    margin-top: 10px;
+}
+
+.movie-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.value {
+    font-size: 14px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .title {
+        font-size: 5vw; /* Adjust for tablets and smaller desktops */
+    }
+    
+    .search-box {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .form-input {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .search {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 6vw;
+    }
+
+    .search-box {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .form-input {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .search {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 8vw; /* Larger font size for very small screens */
+    }
+
+    .search-box {
+        padding: 8px;
+    }
+
+    .form-input, .search {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
